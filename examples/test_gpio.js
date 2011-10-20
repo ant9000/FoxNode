@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-var acme = require('./acme');
+var acme = require('../acme');
 
 // setup two gpio pins on the FoxBoardG20
 var pins = [

@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-var acme = require('./acme');
+var acme = require('../acme');
 
 var daisy5, daisy11;
 
