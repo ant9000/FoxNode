@@ -53,5 +53,5 @@ process.on('SIGUSR1',function(){
   console.log('Daisy11.L7 = '+daisy11.L7);
   console.log('Daisy11.L8 = '+daisy11.L8);
 });
-// send a SIGUSR2 to toggle Daisy11.L7
+// send a SIGUSR2 to toggle Daisy11.L3
 process.on('SIGUSR2',function(){ var s=daisy11.L3; daisy11.L3=1-s; });
