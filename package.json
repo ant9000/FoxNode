@@ -1,0 +1,15 @@
+{
+  "name": "fox_node_g20",
+  "version": "0.0.1a",
+  "description": "NodeJS GPIO library for FoxBoard G20",
+  "author": "Antonio Galea <antonio.galea@gmail.com>",
+  "dependencies": {
+  },
+  "engines": {
+    "node": "*"
+  },
+  "directories": {},
+  "files": [
+    ""
+  ]
+}
