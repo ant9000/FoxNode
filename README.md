@@ -4,6 +4,7 @@ FoxNode - a NodeJS library for interacting with FoxBoard hardware
 -  acme.gpio
 
    GPIO access library for NodeJS, including user space interrupt support
+
 -  acme.daisy
 
    simplifies usage of Daisy5, Daisy11 with NodeJS; built on top of acme.gpio
@@ -17,10 +18,10 @@ First step, create a new GPIO pin object:
 
 where
 
-- <code>name</code>: any of the Fox/Daisy connectors, i.e. J6.X, J7.X, D1.X, ..., D8.X,
+- <code>name</code> is any of the Fox/Daisy connectors, i.e. J6.X, J7.X, D1.X, ..., D8.X,
   or a kernel id number
-- <code>direction</code>: "in" or "out"
-- <code>value</code>: 0 or 1
+- <code>direction</code> is one of "in" or "out"
+- <code>value</code> can be 0 or 1
 
 Direction and value can be read and changed after initialization
 with the following methods:
