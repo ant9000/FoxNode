@@ -1,0 +1,18 @@
+{
+  "name": "meryl_gpio",
+  "version": "0.0.1a",
+  "description": "NodeJS GPIO example web application for FoxBoard G20",
+  "author": "Antonio Galea <antonio.galea@gmail.com>",
+  "dependencies": {
+    "meryl": ">= 1.0.1",
+    "connect": ">= 1.7.1",
+    "socket.io": ">= 0.8.4"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "directories": {},
+  "files": [
+    ""
+  ]
+}

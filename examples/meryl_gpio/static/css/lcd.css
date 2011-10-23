@@ -1,0 +1,15 @@
+/* colors */
+.digit      { background: #CCC; }
+.digit .s   { background: #666; }
+/* size */
+.digit      { width: 25px; height: 50px; margin: 2px;     }
+.digit .s.h { width: 23px; height:  1px; margin: 0px 1px; }
+.digit .s.v { width:  1px; height: 23px; margin: 1px 0px; }
+/* functionality */
+.digit      { position: relative; float: left; clear: none; }
+.digit .s   { position: absolute; }
+.digit .s.t { top:    0px; }
+.digit .s.m { top:    50%; }
+.digit .s.b { bottom: 0px; }
+.digit .s.l { left:   0px; }
+.digit .s.r { right:  0px; }

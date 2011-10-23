@@ -1,0 +1,46 @@
+<html>
+<link rel="stylesheet" href="/css/lcd.css" type="text/css" />
+<link rel="stylesheet" href="/css/led.css" type="text/css" />
+<script src="/js/lcd.js"></script>
+<script src="/js/led.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+function connect(){
+  var pins = [{ name: 'J7.3', direction: 'in' },{ name: 'J7.4', direction: 'out' }],
+      lcd  = {},
+      led  = {},
+      socket = io.connect('/');
+  for(var i=0;i<pins.length;i++){
+    var pin = pins[i];
+    lcd[pin.name]  = new LCD('lcd'+pin.name,3,'0');
+    led[pin.name] = new LED('led'+pin.name,0,pin.direction=='in'?'green':'red');
+    if(pin.direction=='out'){
+      led[pin.name].elem.onclick = function(){
+        socket.emit('data',{ name: pin.name, value: 1-led[pin.name].state });
+      };
+    }
+  }
+  socket.on('connect',function(){
+    socket.on('data', function(data){
+      console.log('data',data)
+      lcd[data.name].display(data.count);
+      if(data.value){
+        led[data.name].on();
+      }else{
+        led[data.name].off();
+      }
+    });
+  });
+}
+</script>
+<body onLoad="connect()">
+<table>
+<tr>
+  <th>J7.3, IN</th><td><div id="lcdJ7.3"></div></td><td><div id="ledJ7.3"></div></td>
+</tr>
+<tr>
+  <th>J7.4, OUT</th><td><div id="lcdJ7.4"></div></td><td><div id="ledJ7.4"></div></td><td>click led to change state</td>
+</tr>
+</table>
+</body>
+</html>
