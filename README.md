@@ -2,34 +2,34 @@ FoxNode - a NodeJS library for interacting with FoxBoard hardware
 =================================================================
 
 -  acme.gpio
+
    GPIO access library for NodeJS, including user space interrupt support
 -  acme.daisy
+
    simplifies usage of Daisy5, Daisy11 with NodeJS; built on top of acme.gpio
 
 The API for GPIO
 ----------------
 
+First step, create a new GPIO pin object:
+
         var pin = new GPIO(name,direction,value);
 
-- name: any of the Fox/Daisy connectors, i.e. J6.X, J7.X, D1.X, ..., D8.X,
-  or a kernel id number
-- direction: "in" or "out"
-- value: 0 or 1
+where
 
-The following methods are defined:
+- <code>name</code>: any of the Fox/Daisy connectors, i.e. J6.X, J7.X, D1.X, ..., D8.X,
+  or a kernel id number
+- <code>direction</code>: "in" or "out"
+- <code>value</code>: 0 or 1
+
+Direction and value can be read and changed after initialization
+with the following methods:
 
         pin.direction()           # get
         pin.direction(direction)  # set
 
         pin.value()               # get
         pin.value(value)          # set
-
-There is also a read-only property
-
-        pin.count
-
-representing the number of value changes since pin
-instantiation.
 
 Upon creation, the pin initializes the underlying
 hardware in order to react to state changes via 
@@ -44,6 +44,13 @@ using a 'data' event, that can be used like this:
           );
         });
 
+There is also a read-only property
+
+        pin.count
+
+representing the number of value changes since
+pin instantiation.
+
 It is possible to stop the event generation with
 
         pin.pause();
@@ -55,9 +62,57 @@ and to restart it afterwards with
 The API for Daisy5
 ------------------
 
-TODO
+In order to instantiate a new Daisy5, the code is
+
+        var daisy5 = new acme.daisy.Daisy5(port);
+
+where <code>port</code> is one of 'D2' or 'D5'.
+
+Daisy5 is configured as 8 input pins, readable as
+
+        daisy5.P1
+        daisy5.P2
+        ...
+        daisy5.P8
+
+Whenever one of the buttons changes state, the object
+will emit a 'data' event:
+
+        daisy5.on('data',function(data){
+          console.log(
+            'Port:   '+data.port+', '+
+            'Button: '+data.button+', '+
+            'Value:  '+data.value+', '+
+            'Count:  '+data.count
+          );
+        });
+
 
 The API for Daisy11
 -------------------
 
-TODO
+In order to instantiate a new Daisy11, the code is
+
+        var daisy11 = new acme.daisy.Daisy11(port);
+
+where <code>port</code> is one of 'D2' or 'D5'.
+
+Daisy11 is configured as 8 output pins, readable and
+writable as
+
+        daisy11.L1
+        daisy11.L2
+        ...
+        daisy11.L8
+
+Whenever one of the leds changes state, the object
+will emit a 'data' event:
+
+        daisy11.on('data',function(data){
+          console.log(
+            'Port:  '+data.port+', '+
+            'Led:   '+data.led+', '+
+            'Value: '+data.value+', '+
+            'Count: '+data.count
+          );
+        });
