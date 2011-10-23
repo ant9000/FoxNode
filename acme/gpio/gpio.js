@@ -34,9 +34,18 @@ function GPIO(name,direction,value){
     'value':     ['0','1'],
   }
 
-  if(kernelid_table[name]==undefined){ throw new Error("Undefined name '"+name+"'"); }
-  this.kernelid = kernelid_table[name];
-  this.name     = name;
+  if(kernelid_table[name]!=undefined){
+    this.kernelid = kernelid_table[name];
+    this.name     = name;
+  }else{
+    var id=parseInt(name);
+    if(id>=1 && id<=96){
+      this.kernelid = id;
+      this.name     = name;
+    }else{
+      throw new Error("Undefined name '"+name+"'");
+    }
+  }
   this.iopath   = '/sys/class/gpio/gpio'+this.kernelid;
   try{
     fs.statSync(this.iopath);
