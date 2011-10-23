@@ -5,7 +5,7 @@ var acme = require('../acme');
 // setup two gpio pins on the FoxBoardG20
 var pins = [
   { name: 'J7.3', direction: 'in',  gpio: null }, // using Fox J7 connector name
-  { name: 83, direction: 'out', gpio: null },     // using the kernel id directly
+  { name: 83, direction: 'out', gpio: null },     // J7.4, directly by kernel id
 ];
 for(var i=0;i<pins.length;i++){
   var pin = pins[i];
