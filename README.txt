@@ -40,7 +40,7 @@ using a 'data' event, that can be used like this:
       'Value: '+data.value+', '+
       'Count: '+data.count
     );
-  }
+  });
 
 It is possible to stop the event generation with
 
