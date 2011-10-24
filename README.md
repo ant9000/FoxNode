@@ -3,7 +3,7 @@ FoxNode - a NodeJS library for interacting with FoxBoard hardware
 
 FoxNode is composed of two related items:
 
--  acme.gpio: a GPIO access library for NodeJS, with user space interrupt support
+-  acme.gpio: a [GPIO](http://www.kernel.org/doc/Documentation/gpio.txt) access library for NodeJS, with user space interrupt support
 -  acme.daisy: to simplify usage of Daisy5 and Daisy11 with NodeJS, built on top of acme.gpio
 
 The API for GPIO
