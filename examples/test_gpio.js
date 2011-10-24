@@ -25,7 +25,7 @@ for(var i=0;i<pins.length;i++){
   }
 }
 
-// send a SIGHUP to dump pin state on console
+// send a SIGUSR1 to dump pin state on console
 process.on('SIGUSR1',function(){
   for(var i=0;i<pins.length;i++){
     var pin = pins[i];
