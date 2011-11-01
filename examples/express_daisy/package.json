@@ -1,0 +1,12 @@
+{
+    "name": "express_daisy"
+  , "version": "0.0.1"
+  , "description": "NodeJS example web application for Daisy"
+  , "private": true
+  , "dependencies": {
+      "express": "2.5.0"
+    , "less": ">= 0.0.1"
+    , "ejs": ">= 0.0.1"
+    , "socket.io": ">= 0.8.4"
+  }
+}
