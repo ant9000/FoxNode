@@ -28,6 +28,7 @@ function Daisy5(port){
        }
     };
     Object.defineProperties(self,props);
+    self.state = function(btn){ if(self._gpio[btn]){ return self._gpio[btn].value(); } }
   })(this);
 }
 util.inherits(Daisy5,events.EventEmitter);
@@ -40,6 +41,7 @@ function Daisy11(port){
   this._gpio = {};
   (function(self){ 
     var props = { };
+    props['status'] = { };
     for(var i=1;i<=8;i++){
        var led = 'L'+i, pin = self.port+'.'+(i+1);
        try{
@@ -54,10 +56,12 @@ function Daisy11(port){
              self.emit('data',{port: self.port, led: led, value: data.value, count: data.count});
            });
            props[led]={ get: function(){ return self._gpio[led].value(); }, set: function(v){ return self._gpio[led].value(v); } };
+           props['status'][led] = props[led];
          })(led);
        }
     };
     Object.defineProperties(self,props);
+    self.state = function(led,v){ if(self._gpio[led]){ return self._gpio[led].value(v); } }
   })(this);
 }
 util.inherits(Daisy11,events.EventEmitter);

@@ -73,6 +73,12 @@ Daisy5 is configured as 8 input pins, readable as
         ...
         daisy5.P8
 
+and also as
+
+        daisy5.state(btn)
+
+where btn is one of 'P1' ... 'P8'.
+
 Whenever one of the buttons changes state, the object
 will emit a 'data' event:
 
@@ -102,6 +108,13 @@ writable as
         daisy11.L2
         ...
         daisy11.L8
+
+and also as
+
+        daisy11.state(led)
+        daisy11.state(led,value)
+
+where led is one of 'L1' ... 'L8'.
 
 Whenever one of the leds changes state, the object
 will emit a 'data' event:
