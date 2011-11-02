@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-var acme = require('../acme'),
+var acme = require('../../acme'),
     express = require('express'),
     app     = module.exports = express.createServer(),
     io      = require('socket.io').listen(app);
@@ -18,6 +18,11 @@ app.configure(function(){
 
 // configure communication with web clients
 io.sockets.on('connection',function(socket){
+  // send current state to client
+  for(var i=1;i<=8;i++){
+    socket.emit('daisy5', { port: daisy5.port, button: 'P'+i, value: daisy5.state('P'+i) });
+    socket.emit('daisy11',{ port: daisy11.port, led: 'L'+i, value: daisy11.state('L'+i) });
+  }
   // pass along data events to clients with the appropriate type
   daisy5.on('data',function(data){ socket.emit('daisy5',data); });
   daisy11.on('data',function(data){ socket.emit('daisy11',data); });
