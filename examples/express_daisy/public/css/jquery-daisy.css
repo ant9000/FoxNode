@@ -1,0 +1,7 @@
+.daisy5 { position: relative; width: 132px; margin: 2px; }
+.daisy5 div { float: left; width: 16px; height: 16px; background: url(/img/leds-16.png); background-position: 0px -16px; }
+.daisy5 div.on { background-position: 0px 0px; }
+
+.daisy11 { position: relative; width: 132px; margin: 2px; }
+.daisy11 div { float: left; width: 16px; height: 16px; background: url(/img/leds-16.png); background-position: -16px -16px; }
+.daisy11 div.on { background-position: -16px 0px; }
