@@ -5,7 +5,7 @@ var methods = {
       return this.each(function(){
         var $this=$(this);
         $this.addClass('daisy5');
-        for(var i=1;i<=8;i++){ $this.append('<div class="P'+i+'"></div>'); }
+        for(var i=1;i<=8;i++){ $this.append('<div class="P'+i+'"><span class="led"/><span class="label">P'+i+'</span></div>'); }
       });
     },
     state: function(btn,value){
@@ -21,7 +21,7 @@ var methods = {
       return this.each(function(){
         var $this=$(this);
         $this.addClass('daisy11');
-        for(var i=1;i<=8;i++){ $this.append('<div class="L'+i+'"></div>'); }
+        for(var i=1;i<=8;i++){ $this.append('<div class="L'+i+'"><span class="led"/><span class="label">L'+i+'</span></div>'); }
         //TODO: $this.bind('click.daisy11',function(event){ ... });
       });
     },
