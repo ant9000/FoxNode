@@ -23,5 +23,11 @@ The example is executed as
 
 Wait a few seconds for the 'socket.io started' message to appear
 on console, then point your browser to port 8080 of the Fox and
-enjoy. For more fun, open multiple browser windows on the very
-same page.
+enjoy.
+
+Push the button: the green led on the page will light up instantly.
+Click on the red leds on the page, and the real led will react at
+once - retroacting a change on the page, too.
+
+For more fun, open multiple browser windows on the same page and
+watch as they synchronize in real time.
