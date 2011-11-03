@@ -22,7 +22,13 @@ var methods = {
         var $this=$(this);
         $this.addClass('daisy11');
         for(var i=1;i<=8;i++){ $this.append('<div class="L'+i+'"><span class="led"/><span class="label">L'+i+'</span></div>'); }
-        //TODO: $this.bind('click.daisy11',function(event){ ... });
+        $this.bind('click.daisy11',function(event){ 
+          var elem=$('span.label',$(event.target).parent());
+          if(elem.length==1){
+            var led=elem.html(), val=(elem.parent('div').hasClass('on')?1:0);
+            $this.trigger('daisy11',{ led: led, value: val });
+          }
+        });
       });
     },
     state: function(led,value){

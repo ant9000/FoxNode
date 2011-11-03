@@ -12,10 +12,12 @@ $(function(){
   // setup communication with server
   var socket = io.connect('/');
   socket.on('connect',function(data){
-    // notification of state change on Daisy5 
-    socket.on('daisy5',function(data){ console.log('daisy5',data); $('#'+data.port).Daisy5('state',data.button,data.value); });
-    // notification of state change on Daisy11
-    socket.on('daisy11',function(data){ console.log('daisy11',data); $('#'+data.port).Daisy11('state',data.led,data.value); });
+    // notify page of state changes on Daisy5 
+    socket.on('daisy5',function(data){ daisy5.Daisy5('state',data.button,data.value); });
+    // notify page of state changes on Daisy11 
+    socket.on('daisy11',function(data){ daisy11.Daisy11('state',data.led,data.value); });
+    // clicking a Daisy11 led toggles its state
+    daisy11.bind('daisy11',function(event,data){ socket.emit('daisy11',{ led: data.led, value: 1-data.value }); });
   });
 });
 </script>

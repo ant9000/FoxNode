@@ -9,7 +9,7 @@
 .daisy5 .label { font-size: 10px; }
 
 .daisy11 { position: relative; width: 128px; height: 32px; border: 1px solid #ccc; margin: 2px; }
-.daisy11 div { float: left; width: 16px; height: 32px; margin: 2px 0px; text-align: center; }
+.daisy11 div { float: left; width: 16px; height: 32px; margin: 2px 0px; text-align: center; cursor: pointer !important; }
 .daisy11 div.clear { clear: both; height: 0px; margin: 0px; }
 .daisy11 .led {
   display: block; width: 16px; height: 16px;
