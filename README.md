@@ -20,8 +20,7 @@ where
 - <code>direction</code> is one of "in" or "out"
 - <code>value</code> can be 0 or 1
 
-Direction and value can be read and changed after initialization
-with the following methods:
+Direction and value can be read and changed after initialization with the following methods:
 
         pin.direction()           # get
         pin.direction(direction)  # set
@@ -29,10 +28,7 @@ with the following methods:
         pin.value()               # get
         pin.value(value)          # set
 
-Upon creation, the pin initializes the underlying
-hardware in order to react to state changes via 
-interrupts. NodeJS is informed of such changes
-using a 'data' event, that can be used like this:
+Upon creation, the pin initializes the underlying hardware in order to react to state changes via interrupts. NodeJS is informed of such changes using a 'data' event, that can be used like this:
 
         pin.on('data',function(data){
           console.log(
@@ -46,8 +42,7 @@ There is also a read-only property
 
         pin.count
 
-representing the number of value changes since
-pin instantiation.
+representing the number of value changes since pin instantiation.
 
 It is possible to stop the event generation with
 
@@ -79,8 +74,7 @@ and also as
 
 where btn is one of 'P1' ... 'P8'.
 
-Whenever one of the buttons changes state, the object
-will emit a 'data' event:
+Whenever one of the buttons changes state, the object will emit a 'data' event:
 
         daisy5.on('data',function(data){
           console.log(
@@ -101,8 +95,7 @@ In order to instantiate a new Daisy11, the code is
 
 where <code>port</code> is one of 'D2' or 'D5'.
 
-Daisy11 is configured as 8 output pins, readable and
-writable as
+Daisy11 is configured as 8 output pins, readable and writable as
 
         daisy11.L1
         daisy11.L2
@@ -116,8 +109,7 @@ and also as
 
 where led is one of 'L1' ... 'L8'.
 
-Whenever one of the leds changes state, the object
-will emit a 'data' event:
+Whenever one of the leds changes state, the object will emit a 'data' event:
 
         daisy11.on('data',function(data){
           console.log(
