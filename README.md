@@ -1,4 +1,4 @@
-FoxNode - a NodeJS library for interacting with FoxBoard hardware
+FoxNode - a NodeJS library for interfacing with FoxBoard hardware
 =================================================================
 
 FoxNode is composed of two related items:
