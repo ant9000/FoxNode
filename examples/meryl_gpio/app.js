@@ -20,7 +20,7 @@ meryl.plug( // configure Meryl and Connect
   connect.logger(),                                                                // log incoming requests on console
   function(req, resp, next) { resp.setHeader('server', 'meryl-nodejs'); next(); }, // add a custom header
   connect.favicon(),                                                               // use a favicon
-  connect.static(__dirname+'/static/')                                             // publish static files from 'static/'
+  connect.static(__dirname+'/../../media/')                                        // publish static files from our media widget library
 );
 
 var cgi = meryl.cgi({debug:false,templateDir:'views'}), // instantiate Meryl, use views from directory 'views/'

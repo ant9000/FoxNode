@@ -22,7 +22,6 @@ function connect(){
   }
   socket.on('connect',function(){
     socket.on('data', function(data){
-      console.log('data',data)
       lcd[data.name].display(data.count);
       if(data.value){
         led[data.name].on();

@@ -11,10 +11,16 @@ var daisy5, daisy11;
 try{ daisy5  = new acme.daisy.Daisy5('D5');  }catch(err){ console.log('ERROR on Daisy-5: '+err);  }
 try{ daisy11 = new acme.daisy.Daisy11('D2'); }catch(err){ console.log('ERROR on Daisy-11: '+err); }
 
-// publish static contents from directory "public/"
 app.configure(function(){
-  app.use(express.static(__dirname + '/public'));
+  // publish static contents from our media directory
+  app.use(express.static(__dirname + '/../../media/'));
+  // define views and template rendering engine options
+  app.set('views',__dirname + '/views/');
+  app.set('view options',{ layout: false });
 });
+
+// define the initial page
+app.get('/', function(req, res){ res.render('index.ejs'); });
 
 // configure communication with web clients
 io.sockets.on('connection',function(socket){
