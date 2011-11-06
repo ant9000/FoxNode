@@ -21,4 +21,4 @@ Wait a few seconds for the 'socket.io started' message to appear on console, the
 
 Push the buttons on your Daisy5: the corresponding green leds on the page will light up instantly. Click on the red leds on the page, and the Daisy11 leds will react immediately - retroacting a change on the page, too.
 
-For more fun, open multiple browser windows on the same page and watch as they synchronize in real time.
+For more fun, point multiple browser windows to the same page and watch them as they synchronize in real time.
